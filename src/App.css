@@ -1,11 +1,17 @@
 html {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background-color:  #f0f0f0;
 }
 
 .leaflet-container {
-    height: 90vh;
+    height: 86vh;
     width: 100%;
     background: #444;
-    /* color: #fafafa; */
+    margin-top: -30px;
 }
