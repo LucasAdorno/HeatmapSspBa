@@ -19,7 +19,7 @@ function HeatMap() {
 
       response.data.map(item => {
         item.city === 'Salvador' ? filteredNeighborhood.push(item.bairro) : filteredNeighborhood.push(item.city);
-        return points.push([Number(item.latitude), Number(item.longitude)])
+        return points.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
       })
 
       filteredNeighborhood = filteredNeighborhood.filter((item, index, self) => index === self.indexOf(item));
@@ -35,14 +35,15 @@ function HeatMap() {
     let filteredPoints = [];
     if (e.target.value === 'todos') {
       data.map(item =>
-        filteredPoints.push([Number(item.latitude), Number(item.longitude)])
+        filteredPoints.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
       )
     }
-
     else {
-      data.map(item => 
-         item.bairro === e.target.value || item.city === e.target.value ? filteredPoints.push([Number(item.latitude), Number(item.longitude)]) : 0
-        )
+      data.map(item => {
+        if (item.bairro === e.target.value || item.city === e.target.value) {
+          filteredPoints.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
+        }
+      })
     }
     setAddressPoints(filteredPoints)
     console.log(filteredPoints);
