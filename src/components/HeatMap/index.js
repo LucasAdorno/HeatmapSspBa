@@ -18,7 +18,7 @@ function HeatMap() {
       setData(response.data);
 
       response.data.map(item => {
-        item.city === 'Salvador' ? filteredNeighborhood.push(item.bairro) : filteredNeighborhood.push(item.city);
+        item.cidade === 'Salvador' ? filteredNeighborhood.push(item.bairro) : filteredNeighborhood.push(item.cidade);
         return points.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
       })
 
@@ -40,7 +40,7 @@ function HeatMap() {
     }
     else {
       data.map(item => {
-        if (item.bairro === e.target.value || item.city === e.target.value) {
+        if (item.bairro === e.target.value || item.cidade === e.target.value) {
           filteredPoints.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
         }
       })
