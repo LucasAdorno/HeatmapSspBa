@@ -33,7 +33,16 @@ function HeatMap() {
 
   const HandleChangeSelect = e => {
     let filteredPoints = [];
-    if (e.target.value === 'todos') {
+
+    if (e.target.value === 'Salvador') {
+      data.map(item => {
+        if (item.cidade === e.target.value) {
+          filteredPoints.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
+        }
+      })
+    }
+
+    else if (e.target.value === 'todos') {
       data.map(item =>
         filteredPoints.push([Number(item.latitude) + Math.random() * 0.0006, Number(item.longitude) + Math.random() * 0.0006])
       )
@@ -53,6 +62,8 @@ function HeatMap() {
     <Container>
       <select onChange={(e) => HandleChangeSelect(e)}>
         <option value={'todos'}> Todos </option>
+        <option value={'Salvador'}> Salvador </option>
+
         {neighborhood.map(item => <option key={item} value={item}> {item} </option>)}
       </select>
       <Map center={[-12.990226, -38.501322]} zoom={12} height={20}>
